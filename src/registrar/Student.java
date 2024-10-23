@@ -3,6 +3,8 @@ package registrar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * A student at a school.
@@ -24,7 +26,9 @@ public class Student {
      * Returns all courses this student is currently enrolled in.
      */
     public List<Course> getCourses() {
-        return courses;
+        //ArrayList<Course> copyCourses = (ArrayList<Course>) courses.clone(); 
+        //return copyCourses;
+        return Collections.unmodifiableList(courses); //protects the original list and returns a modifiable list.
     }
 
     /**

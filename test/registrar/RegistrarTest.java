@@ -108,4 +108,12 @@ class RegistrarTest {
             c + " has an enrollment limit of " + c.getEnrollmentLimit()
                 + ", but has " + c.getRoster().size() + " students");
     }
+
+    @Test
+    void clientsCannotModifyCourses() {
+       assertThrows(Course.class, () ->{
+        sally.getCourses().add(comp127);
+       });
+    }
+
 }
