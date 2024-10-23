@@ -109,11 +109,11 @@ class RegistrarTest {
                 + ", but has " + c.getRoster().size() + " students");
     }
 
-    @Test
+   @Test
     void clientsCannotModifyCourses() {
-       assertThrows(Course.class, () ->{
+       assertThrows(UnsupportedOperationException.class, () ->{
         sally.getCourses().add(comp127);
-       });
-    }
+        });
+   }
 
 }
