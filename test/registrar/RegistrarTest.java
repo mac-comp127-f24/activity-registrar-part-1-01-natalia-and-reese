@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("WeakerAccess")
@@ -116,4 +118,14 @@ class RegistrarTest {
         });
    }
 
+   @Test
+    void clientsCannotModifyRoster() {
+        comp127.setEnrollmentLimit(2);
+        sally.enrollIn(comp127);
+        fred.enrollIn(comp127);
+        assertThrows(IllegalStateException.class, () ->{
+        comp127.setEnrollmentLimit(1);
+        });
+   }
+   //Collections.unmodifiableList, 
 }
